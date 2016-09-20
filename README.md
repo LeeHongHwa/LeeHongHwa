@@ -13,6 +13,7 @@
 
 #### 2. Objective-C 기초
   - [Xcode와 Class Code 살펴보기]
+  - [객체, 프로퍼티, 메서드, 퀵헬프 추가하기]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -27,3 +28,5 @@
   [프로그램 기초상식, SW 공학개론]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160909.pdf>
 
   [Xcode와 Class Code 살펴보기]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160919_Xcode%2CObject/160919_Xcode%2CObject.md>
+
+  [객체, 프로퍼티, 메서드, 퀵헬프 추가하기]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160920_Object%2CMethod%2CProperty%2CQuickHelp/160920_Object%2CMethod%2CProperty%2CQuickHelp.md>
