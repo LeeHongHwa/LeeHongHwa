@@ -14,6 +14,8 @@
 #### 2. Objective-C 기초
   - [Xcode와 Class Code 살펴보기]
   - [객체, 프로퍼티, 메서드, 퀵헬프 추가하기]
+  - [데이터 타입, 프로퍼티 접근, 다형성]
+  - [상속, 재정의(override), super, self]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -30,3 +32,7 @@
   [Xcode와 Class Code 살펴보기]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160919_Xcode%2CObject/160919_Xcode%2CObject.md>
 
   [객체, 프로퍼티, 메서드, 퀵헬프 추가하기]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160920_Object%2CMethod%2CProperty%2CQuickHelp/160920_Object%2CMethod%2CProperty%2CQuickHelp.md>
+
+  [데이터 타입, 프로퍼티 접근, 다형성]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160921_%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85%2C%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0%EC%A0%91%EA%B7%BC%2C%EB%8B%A4%ED%98%95%EC%84%B1/160921_%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85%2C%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0%EC%A0%91%EA%B7%BC%2C%EB%8B%A4%ED%98%95%EC%84%B1.md>
+
+  [상속, 재정의(override), super, self]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160922_%EC%83%81%EC%86%8D%2C%EC%9E%AC%EC%A0%95%EC%9D%98%2CSelf%2CSuper/160922_%EC%83%81%EC%86%8D%2C%EC%9E%AC%EC%A0%95%EC%9D%98%2CSelf%2CSuper.md>
