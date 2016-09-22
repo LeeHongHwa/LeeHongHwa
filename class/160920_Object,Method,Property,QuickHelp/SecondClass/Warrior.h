@@ -8,39 +8,71 @@
 
 #import <Foundation/Foundation.h>
 /**
- *description 전사를 만드는 클래스 입니다.
- *무기와 HP, MP, health 속성이 있습니다.
- *스턴, 어택, 버서커, 런의 메서드가 있습니다.
+ * 전사를 만드는 클래스
+ * 물리공격력 세고 마법공격력 약합니다
+ * 체력이 높고 마력이 약합니다
+ * @discussion 전사가 갖추어야 할 property와 method는 무엇이 있을까?
+ * @autour 이홍화
+ * @verison 0.1
  */
 @interface Warrior : NSObject
 
+/// Warrior의 이름 입니다
 @property id name;
 
-// helth를 1을 증가 시키면 physicalPower가 15씩 증가 합니다.
+/// Warrior의 체력 입니다
 @property id health;
 
-// 전사의 체력을 나타냅니다.
+/// Warrior의 마력 입니다
+@property id mana;
+
+/// Warrior의 물리공격력 입니다
 @property id physicalPower;
 
-// 전사의 마력을 나타냅니다.
+/// Warrior의 마법공격력 입니다
 @property id magicalPower;
 
-// 전사의 무기를 나타냅니다.
+/// Warrior의 무기 입니다
 @property id weapon;
 
-// 적에게 80%의 데미지, 30%확률로 기절
+/**
+ * monster(상대방)에게 sturn(공격)을 합니다.
+ * @param monster sturn 공격을 당할 대상
+ * @autor 이홍화
+ * @verison 0.1
+ */
 - (id)sturn:(id)monster;
 
-// 적에게 150%의 데미지
+/**
+ * human(상대방)에게 attack(공격)을 합니다.
+ * @param human sturn 공격을 당할 대상
+ * @autor 이홍화
+ * @verison 0.1
+ */
 - (id)attack:(id)human;
 
-// 몬스터에게 몇번 누구와 같이 때리다.
+/**
+ * monster(상대방)에게 number(횟수)번 who(나와 같이 공격할 대상)와 같이 attack(공격)을 합니다.
+ * @param monster sturn 공격을 당할 대상
+ * @param number attackTo하는 횟수
+ * @param who 같이 attackTo하는 사람
+ * @autor 이홍화
+ * @verison 0.1
+ */
 - (id)attackTo:(id)monster hit:(id)number with:(id)who;
 
-// 자신의 방어력을 낮추고 공격력 상승
+/**
+ * 자신의 방어력을 낮추고 공격력 상승
+ * @autor 이홍화
+ * @verison 0.1
+ */
 - (id)berserker;
 
-// 달리기 속도 150% 상승
+/**
+ * 달리기 속도 상승
+ * @autor 이홍화
+ * @verison 0.1
+ */
 - (id)run;
 
 @end
