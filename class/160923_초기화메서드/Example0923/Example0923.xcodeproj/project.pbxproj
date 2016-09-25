@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63E06F5E1D94BCDF00288EA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F5D1D94BCDF00288EA9 /* main.m */; };
+		63E06F661D94BCF500288EA9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F651D94BCF500288EA9 /* Person.m */; };
+		63E06F691D94C5EB00288EA9 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F681D94C5EB00288EA9 /* Student.m */; };
+		63E06F871D94EDB600288EA9 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F861D94EDB600288EA9 /* Game.m */; };
+		63E06F8A1D94F3D000288EA9 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F891D94F3D000288EA9 /* GameCharacter.m */; };
+		63E06F8D1D94F9C900288EA9 /* Warrior.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F8C1D94F9C900288EA9 /* Warrior.m */; };
+		63E06F901D94F9E300288EA9 /* Wizzard.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F8F1D94F9E300288EA9 /* Wizzard.m */; };
+		63E06F931D94FA1300288EA9 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F921D94FA1300288EA9 /* Monster.m */; };
+		63E06F961D94FB0800288EA9 /* AxeWarrior.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F951D94FB0800288EA9 /* AxeWarrior.m */; };
+		63E06F991D94FB2500288EA9 /* SwordWorrior.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F981D94FB2500288EA9 /* SwordWorrior.m */; };
+		63E06F9C1D94FB4700288EA9 /* HealWizzard.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F9B1D94FB4700288EA9 /* HealWizzard.m */; };
+		63E06F9F1D94FB5C00288EA9 /* FireWizzard.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06F9E1D94FB5C00288EA9 /* FireWizzard.m */; };
+		63E06FA21D94FB9100288EA9 /* Oak.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E06FA11D94FB9100288EA9 /* Oak.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		63E06F581D94BCDF00288EA9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		63E06F5A1D94BCDF00288EA9 /* Example0923 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Example0923; sourceTree = BUILT_PRODUCTS_DIR; };
+		63E06F5D1D94BCDF00288EA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		63E06F641D94BCF500288EA9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		63E06F651D94BCF500288EA9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		63E06F671D94C5EB00288EA9 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		63E06F681D94C5EB00288EA9 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		63E06F851D94EDB600288EA9 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
+		63E06F861D94EDB600288EA9 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = ../Game.m; sourceTree = "<group>"; };
+		63E06F881D94F3D000288EA9 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
+		63E06F891D94F3D000288EA9 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
+		63E06F8B1D94F9C900288EA9 /* Warrior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Warrior.h; sourceTree = "<group>"; };
+		63E06F8C1D94F9C900288EA9 /* Warrior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Warrior.m; sourceTree = "<group>"; };
+		63E06F8E1D94F9E300288EA9 /* Wizzard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wizzard.h; sourceTree = "<group>"; };
+		63E06F8F1D94F9E300288EA9 /* Wizzard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wizzard.m; sourceTree = "<group>"; };
+		63E06F911D94FA1300288EA9 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
+		63E06F921D94FA1300288EA9 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
+		63E06F941D94FB0800288EA9 /* AxeWarrior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxeWarrior.h; sourceTree = "<group>"; };
+		63E06F951D94FB0800288EA9 /* AxeWarrior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxeWarrior.m; sourceTree = "<group>"; };
+		63E06F971D94FB2500288EA9 /* SwordWorrior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwordWorrior.h; sourceTree = "<group>"; };
+		63E06F981D94FB2500288EA9 /* SwordWorrior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwordWorrior.m; sourceTree = "<group>"; };
+		63E06F9A1D94FB4700288EA9 /* HealWizzard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealWizzard.h; sourceTree = "<group>"; };
+		63E06F9B1D94FB4700288EA9 /* HealWizzard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealWizzard.m; sourceTree = "<group>"; };
+		63E06F9D1D94FB5C00288EA9 /* FireWizzard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireWizzard.h; sourceTree = "<group>"; };
+		63E06F9E1D94FB5C00288EA9 /* FireWizzard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireWizzard.m; sourceTree = "<group>"; };
+		63E06FA01D94FB9100288EA9 /* Oak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oak.h; sourceTree = "<group>"; };
+		63E06FA11D94FB9100288EA9 /* Oak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oak.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63E06F571D94BCDF00288EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63D718F51D960B390035B9EC /* Wizzard */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F8E1D94F9E300288EA9 /* Wizzard.h */,
+				63E06F8F1D94F9E300288EA9 /* Wizzard.m */,
+				63E06F9A1D94FB4700288EA9 /* HealWizzard.h */,
+				63E06F9B1D94FB4700288EA9 /* HealWizzard.m */,
+				63E06F9D1D94FB5C00288EA9 /* FireWizzard.h */,
+				63E06F9E1D94FB5C00288EA9 /* FireWizzard.m */,
+			);
+			name = Wizzard;
+			sourceTree = "<group>";
+		};
+		63D718F61D960B4E0035B9EC /* Warrior */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F8B1D94F9C900288EA9 /* Warrior.h */,
+				63E06F8C1D94F9C900288EA9 /* Warrior.m */,
+				63E06F941D94FB0800288EA9 /* AxeWarrior.h */,
+				63E06F951D94FB0800288EA9 /* AxeWarrior.m */,
+				63E06F971D94FB2500288EA9 /* SwordWorrior.h */,
+				63E06F981D94FB2500288EA9 /* SwordWorrior.m */,
+			);
+			name = Warrior;
+			sourceTree = "<group>";
+		};
+		63D718F71D960B5C0035B9EC /* GameCharacter */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F881D94F3D000288EA9 /* GameCharacter.h */,
+				63E06F891D94F3D000288EA9 /* GameCharacter.m */,
+				63D718F61D960B4E0035B9EC /* Warrior */,
+				63D718F51D960B390035B9EC /* Wizzard */,
+			);
+			name = GameCharacter;
+			sourceTree = "<group>";
+		};
+		63D718F81D960B6A0035B9EC /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F911D94FA1300288EA9 /* Monster.h */,
+				63E06F921D94FA1300288EA9 /* Monster.m */,
+				63E06FA01D94FB9100288EA9 /* Oak.h */,
+				63E06FA11D94FB9100288EA9 /* Oak.m */,
+			);
+			name = Monster;
+			sourceTree = "<group>";
+		};
+		63D718F91D960B730035B9EC /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F851D94EDB600288EA9 /* Game.h */,
+				63E06F861D94EDB600288EA9 /* Game.m */,
+				63D718F71D960B5C0035B9EC /* GameCharacter */,
+				63D718F81D960B6A0035B9EC /* Monster */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		63D718FA1D960B7E0035B9EC /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F641D94BCF500288EA9 /* Person.h */,
+				63E06F651D94BCF500288EA9 /* Person.m */,
+				63E06F671D94C5EB00288EA9 /* Student.h */,
+				63E06F681D94C5EB00288EA9 /* Student.m */,
+			);
+			name = Person;
+			sourceTree = "<group>";
+		};
+		63E06F511D94BCDF00288EA9 = {
+			isa = PBXGroup;
+			children = (
+				63E06F5C1D94BCDF00288EA9 /* Example0923 */,
+				63E06F5B1D94BCDF00288EA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		63E06F5B1D94BCDF00288EA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F5A1D94BCDF00288EA9 /* Example0923 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63E06F5C1D94BCDF00288EA9 /* Example0923 */ = {
+			isa = PBXGroup;
+			children = (
+				63E06F5D1D94BCDF00288EA9 /* main.m */,
+				63D718F91D960B730035B9EC /* Game */,
+				63D718FA1D960B7E0035B9EC /* Person */,
+			);
+			path = Example0923;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63E06F591D94BCDF00288EA9 /* Example0923 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63E06F611D94BCDF00288EA9 /* Build configuration list for PBXNativeTarget "Example0923" */;
+			buildPhases = (
+				63E06F561D94BCDF00288EA9 /* Sources */,
+				63E06F571D94BCDF00288EA9 /* Frameworks */,
+				63E06F581D94BCDF00288EA9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example0923;
+			productName = Example0923;
+			productReference = 63E06F5A1D94BCDF00288EA9 /* Example0923 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63E06F521D94BCDF00288EA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = david;
+				TargetAttributes = {
+					63E06F591D94BCDF00288EA9 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 63E06F551D94BCDF00288EA9 /* Build configuration list for PBXProject "Example0923" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 63E06F511D94BCDF00288EA9;
+			productRefGroup = 63E06F5B1D94BCDF00288EA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63E06F591D94BCDF00288EA9 /* Example0923 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63E06F561D94BCDF00288EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63E06F931D94FA1300288EA9 /* Monster.m in Sources */,
+				63E06F9C1D94FB4700288EA9 /* HealWizzard.m in Sources */,
+				63E06F871D94EDB600288EA9 /* Game.m in Sources */,
+				63E06F661D94BCF500288EA9 /* Person.m in Sources */,
+				63E06FA21D94FB9100288EA9 /* Oak.m in Sources */,
+				63E06F8A1D94F3D000288EA9 /* GameCharacter.m in Sources */,
+				63E06F9F1D94FB5C00288EA9 /* FireWizzard.m in Sources */,
+				63E06F8D1D94F9C900288EA9 /* Warrior.m in Sources */,
+				63E06F991D94FB2500288EA9 /* SwordWorrior.m in Sources */,
+				63E06F5E1D94BCDF00288EA9 /* main.m in Sources */,
+				63E06F961D94FB0800288EA9 /* AxeWarrior.m in Sources */,
+				63E06F691D94C5EB00288EA9 /* Student.m in Sources */,
+				63E06F901D94F9E300288EA9 /* Wizzard.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		63E06F5F1D94BCDF00288EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		63E06F601D94BCDF00288EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		63E06F621D94BCDF00288EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		63E06F631D94BCDF00288EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63E06F551D94BCDF00288EA9 /* Build configuration list for PBXProject "Example0923" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63E06F5F1D94BCDF00288EA9 /* Debug */,
+				63E06F601D94BCDF00288EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63E06F611D94BCDF00288EA9 /* Build configuration list for PBXNativeTarget "Example0923" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63E06F621D94BCDF00288EA9 /* Debug */,
+				63E06F631D94BCDF00288EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63E06F521D94BCDF00288EA9 /* Project object */;
+}
