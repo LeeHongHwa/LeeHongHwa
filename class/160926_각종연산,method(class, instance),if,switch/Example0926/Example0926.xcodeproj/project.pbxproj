@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630F8A2A1D98C064000BC4C3 /* dimensionalShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 630F8A291D98C064000BC4C3 /* dimensionalShapes.m */; };
+		630F8A2A1D98C064000BC4C3 /* DimensionalShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 630F8A291D98C064000BC4C3 /* DimensionalShapes.m */; };
+		63814B401D98EDA3005124AB /* ToolBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 63814B3F1D98EDA3005124AB /* ToolBox.m */; };
+		63814B431D98FE64005124AB /* IfExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 63814B421D98FE64005124AB /* IfExample.m */; };
 		63B33F831D98AE1E007C1801 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B33F821D98AE1E007C1801 /* main.m */; };
 		63B33F8B1D98BA87007C1801 /* CalculationSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B33F8A1D98BA87007C1801 /* CalculationSubject.m */; };
 /* End PBXBuildFile section */
@@ -25,8 +27,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		630F8A281D98C064000BC4C3 /* dimensionalShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dimensionalShapes.h; sourceTree = "<group>"; };
-		630F8A291D98C064000BC4C3 /* dimensionalShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dimensionalShapes.m; sourceTree = "<group>"; };
+		630F8A281D98C064000BC4C3 /* DimensionalShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimensionalShapes.h; sourceTree = "<group>"; };
+		630F8A291D98C064000BC4C3 /* DimensionalShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimensionalShapes.m; sourceTree = "<group>"; };
+		63814B3E1D98EDA3005124AB /* ToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBox.h; sourceTree = "<group>"; };
+		63814B3F1D98EDA3005124AB /* ToolBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBox.m; sourceTree = "<group>"; };
+		63814B411D98FE64005124AB /* IfExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IfExample.h; sourceTree = "<group>"; };
+		63814B421D98FE64005124AB /* IfExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IfExample.m; sourceTree = "<group>"; };
 		63B33F7F1D98AE1E007C1801 /* Example0926 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Example0926; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B33F821D98AE1E007C1801 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63B33F891D98BA87007C1801 /* CalculationSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculationSubject.h; sourceTree = "<group>"; };
@@ -64,10 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				63B33F821D98AE1E007C1801 /* main.m */,
-				630F8A281D98C064000BC4C3 /* dimensionalShapes.h */,
-				630F8A291D98C064000BC4C3 /* dimensionalShapes.m */,
+				630F8A281D98C064000BC4C3 /* DimensionalShapes.h */,
+				630F8A291D98C064000BC4C3 /* DimensionalShapes.m */,
 				63B33F891D98BA87007C1801 /* CalculationSubject.h */,
 				63B33F8A1D98BA87007C1801 /* CalculationSubject.m */,
+				63814B3E1D98EDA3005124AB /* ToolBox.h */,
+				63814B3F1D98EDA3005124AB /* ToolBox.m */,
+				63814B411D98FE64005124AB /* IfExample.h */,
+				63814B421D98FE64005124AB /* IfExample.m */,
 			);
 			path = Example0926;
 			sourceTree = "<group>";
@@ -129,9 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630F8A2A1D98C064000BC4C3 /* dimensionalShapes.m in Sources */,
+				630F8A2A1D98C064000BC4C3 /* DimensionalShapes.m in Sources */,
 				63B33F8B1D98BA87007C1801 /* CalculationSubject.m in Sources */,
 				63B33F831D98AE1E007C1801 /* main.m in Sources */,
+				63814B401D98EDA3005124AB /* ToolBox.m in Sources */,
+				63814B431D98FE64005124AB /* IfExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
