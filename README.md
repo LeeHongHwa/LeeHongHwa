@@ -17,6 +17,11 @@
   - [데이터 타입, 프로퍼티 접근, 다형성]
   - [상속, 재정의(override), super, self]
   - [초기화 메서드]
+  - [import와 @class, 메서드(클래스, 인스턴스), 캐스팅, 조건문(if, switch)]
+  - [자료구조(Memory구조, Pointer, Value & Reference, 배열)]
+  - [LinkedList, Dictionary]
+  - [iOS UI 구조 파악 (MVC, Resolutions, UIView Class)]
+  - [iOS UI구조 파악2 (UILabel, UIImageView)]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -39,3 +44,13 @@
   [상속, 재정의(override), super, self]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160922_%EC%83%81%EC%86%8D%2C%EC%9E%AC%EC%A0%95%EC%9D%98%2CSelf%2CSuper/160922_%EC%83%81%EC%86%8D%2C%EC%9E%AC%EC%A0%95%EC%9D%98%2CSelf%2CSuper.md>
 
   [초기화 메서드]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160923_%EC%B4%88%EA%B8%B0%ED%99%94%EB%A9%94%EC%84%9C%EB%93%9C/160923_%EC%B4%88%EA%B8%B0%ED%99%94%EB%A9%94%EC%84%9C%EB%93%9C.md>
+
+  [import와 @class, 메서드(클래스, 인스턴스), 캐스팅, 조건문(if, switch)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160926_%EA%B0%81%EC%A2%85%EC%97%B0%EC%82%B0%2Cmethod(class%2C%20instance)%2Cif%2Cswitch/160926_%EA%B0%81%EC%A2%85%EC%97%B0%EC%82%B0%2Cmethod(class%2C%20instance)%2Cif%2Cswitch.md>
+
+  [자료구조(Memory구조, Pointer, Value & Reference, 배열)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160927_%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0(Memory%EA%B5%AC%EC%A1%B0%2CPointer%2CValue%26Reference%2C%EB%B0%B0%EC%97%B4)/160927_%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0(Memory%EA%B5%AC%EC%A1%B0%2CPointer%2CValue%26Reference%2C%EB%B0%B0%EC%97%B4).md>
+
+  [LinkedList, Dictionary]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160928_LinkedList%2CDictionary/160928_LinkedList%2CDictionary.md>
+
+  [iOS UI 구조 파악 (MVC, Resolutions, UIView Class)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160929_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%85(MVC%2CResolutions%2CUIViewClass)/160929_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%85(MVC%2CResolutions%2CUIViewClass).md>
+
+  [iOS UI구조 파악2 (UILabel, UIImageView)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160930_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%852(UILabel%2CUIImageView)/160930_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%852(UILabel%2CUIImageView).md>
