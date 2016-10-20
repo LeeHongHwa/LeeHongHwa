@@ -20,6 +20,8 @@
 @property BOOL isEditting;
 ///스위치의 on,off
 @property BOOL switchOn;
+///스위치의 상태 저장
+@property NSMutableArray *switchStatus;
 
 @end
 
@@ -28,6 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //스위치의 상태
+    NSArray *switchStatusTemp = @[@0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0];
+    self.switchStatus = [[NSMutableArray alloc] init];
+    [self.switchStatus addObjectsFromArray:switchStatusTemp];
     //편집버튼(UIBar)
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEditButton:)];
     
@@ -179,42 +185,48 @@
 //셀
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"animal"];
-    if (cell == nil)
+    UITableViewCell *cell;
+    UISwitch *switchButton;
+    //row가 0일때 switch cell로 재사용 한다.
+    if (indexPath.row == 0)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"animal"];
-    }
-    //스위치 생성
-    UISwitch *swithcbtn = [[UISwitch alloc] init];
-    [swithcbtn addTarget:self action:@selector(valueChangedSwitch:) forControlEvents:UIControlEventValueChanged];
-    //row 0 에만 스위치 버튼 생성
-    if (0 == indexPath.row)
-    {
-        cell.accessoryView = swithcbtn;
+        cell = [tableView dequeueReusableCellWithIdentifier:@"switch"];
+        
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"switch"];
+            //스위치 생성
+            switchButton = [[UISwitch alloc] init];
+            [switchButton addTarget:self action:@selector(valueChangedSwitch:) forControlEvents:UIControlEventValueChanged];
+            //버튼에 tag값 입력
+            switchButton.tag = indexPath.section;
+            cell.accessoryView = switchButton;
+            //tempAnimalData중 하나 저장
+            NSDictionary *animalData = self.tempAnimalData[indexPath.section];
+            //애니멀 이름
+            NSArray *animalName = [animalData objectForKey:@"name"];
+            //애니멀 이름 + indexPath.row값
+            cell.textLabel.text = [[NSString stringWithFormat:@"%ld ", indexPath.row ] stringByAppendingString:animalName[indexPath.row]];
+        } else if(switchButton == nil)
+        {
+            switchButton = (UISwitch *)cell.accessoryView;
+            [switchButton setOn:[self.switchStatus[indexPath.section] boolValue]];
+        }
     } else
     {
-        cell.accessoryView = nil;
+        cell = [tableView dequeueReusableCellWithIdentifier:@"animal"];
+        
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"animal"];
+            //tempAnimalData중 하나 저장
+            NSDictionary *animalData = self.tempAnimalData[indexPath.section];
+            //애니멀 이름
+            NSArray *animalName = [animalData objectForKey:@"name"];
+            //애니멀 이름 + indexPath.row값
+            cell.textLabel.text = [[NSString stringWithFormat:@"%ld ", indexPath.row ] stringByAppendingString:animalName[indexPath.row]];
+        }
     }
-    
-    if (self.switchOn == YES)
-    {
-        //인덱스.section과 row값을 저장
-        //스위치의 버튼이 켜진다면 어레이에 저장하고
-//        indexPath.section
-//        indexPath.row
-    }
-    
-    if (cell.accessoryView != nil)
-    {
-        //패스값에 비교후 켜져있다면 켜져있는 상태로 저장
-    }
-    //하나의 애니멀 데이터 저장
-    NSDictionary *animalData = self.tempAnimalData[indexPath.section];
-    //애니멀 이름
-    NSArray *animalName = [animalData objectForKey:@"name"];
-    //애니멀 이름 + indexPath.row값
-    cell.textLabel.text = [[NSString stringWithFormat:@"%ld ", indexPath.row ] stringByAppendingString:animalName[indexPath.row]];
-    
     return cell;
 }
 
@@ -229,10 +241,10 @@
     //스위치 status 저장
     if (sender.isOn == YES)
     {
-        self.switchOn = YES;
+        [self.switchStatus replaceObjectAtIndex:sender.tag withObject:@1];
     }else
     {
-        self.switchOn = NO;
+        [self.switchStatus replaceObjectAtIndex:sender.tag withObject:@0];
     }
 }
 
@@ -306,6 +318,7 @@
     NSMutableArray *tempSourceName = [[NSMutableArray alloc] init];
     [tempSourceName addObjectsFromArray:[tempSource objectForKey:@"name"]];
     NSString *tempSourceNameStr = tempSourceName[sourceIndexPath.row];
+    NSLog(@"%@",tempSourceNameStr);
     
     //뮤터블딕셔너리(도착점 셀)
     NSMutableDictionary *tempDestination = [[NSMutableDictionary alloc] init];
@@ -315,6 +328,7 @@
     NSMutableArray *destinationName = [[NSMutableArray alloc] init];
     [destinationName addObjectsFromArray:[tempDestination objectForKey:@"name"]];
     NSString *destinationNameStr = destinationName[destinationIndexPath.row];
+    NSLog(@"%@",destinationNameStr);
     
     //서로 교환
     [tempSourceName replaceObjectAtIndex:sourceIndexPath.row withObject:destinationNameStr];
