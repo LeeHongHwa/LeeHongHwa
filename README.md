@@ -22,6 +22,16 @@
   - [LinkedList, Dictionary]
   - [iOS UI 구조 파악 (MVC, Resolutions, UIView Class)]
   - [iOS UI구조 파악2 (UILabel, UIImageView)]
+  - [자판기, 반복문(while, for)]
+  - [자료구조(Stack, Queue) 구현]
+  - [자료구조2(Selection, Insertion, Bubble, Merge, Quick Sort)]
+  - [UIControl, UIButton]
+  - [Delegate, TextField, ScrollView]
+  - [TableView]
+  - [TableView 2, CustomTableView]
+  - [Storyborad, MVC]
+  - [AutoLayout, SizeClass]
+  - [Application Lifecycle]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -54,3 +64,23 @@
   [iOS UI 구조 파악 (MVC, Resolutions, UIView Class)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160929_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%85(MVC%2CResolutions%2CUIViewClass)/160929_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%85(MVC%2CResolutions%2CUIViewClass).md>
 
   [iOS UI구조 파악2 (UILabel, UIImageView)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/160930_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%852(UILabel%2CUIImageView)/160930_iOSUI%EA%B5%AC%EC%A1%B0%ED%8C%8C%EC%95%852(UILabel%2CUIImageView).md>
+
+  [자판기, 반복문(while, for)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161004_%EC%9E%90%ED%8C%90%EA%B8%B0%2C%EB%B0%98%EB%B3%B5%EB%AC%B8(while%2Cfor)/161004_%EC%9E%90%ED%8C%90%EA%B8%B0%2C%EB%B0%98%EB%B3%B5%EB%AC%B8(while%2Cfor).md>
+
+  [자료구조(Stack, Queue) 구현]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161006_%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0(Stack%2CQueue)%EA%B5%AC%ED%98%84/161006_%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0(Stack%2CQueue)%EA%B5%AC%ED%98%84.md>
+
+  [자료구조2(Selection, Insertion, Bubble, Merge, Quick Sort)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161007_%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B02(Selection%2CInsertion%2CBubble%2CMerge%2CQuickSort)/161007_%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B02(Selection%2CInsertion%2CBubble%2CMerge%2CQuickSort).md>
+
+  [UIControl, UIButton]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161010_UIControl%2CUIButton/161010_UIControl%2CUIButton.md>
+
+  [Delegate, TextField, ScrollView]: <https://github.com/LeeHongHwa/LeeHongHwa/tree/class/class/161011_Delegate%2CTextField%2CScrollView>
+
+  [TableView]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161013_TableView/161013_TableView.md>
+
+  [TableView 2, CustomTableView]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161014_TableView2%2CCustomTableView/161014_TableView2%2CCustomTableView.md>
+
+  [Storyborad, MVC]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161017_Storyborad%2CMVC/161017_Storyborad%2CMVC.md>
+
+  [AutoLayout, SizeClass]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161018_AutoLayout%2CSizeClass/161018_AutoLayout%2CSizeClass.md>
+
+  [Application Lifecycle]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161020_ApplicationLifecycle/161020_ApplicationLifecycle.md>
