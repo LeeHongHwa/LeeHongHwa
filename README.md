@@ -32,6 +32,7 @@
   - [Storyborad, MVC]
   - [AutoLayout, SizeClass]
   - [Application Lifecycle]
+  - [Application Lifecycle 2]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -84,3 +85,5 @@
   [AutoLayout, SizeClass]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161018_AutoLayout%2CSizeClass/161018_AutoLayout%2CSizeClass.md>
 
   [Application Lifecycle]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161020_ApplicationLifecycle/161020_ApplicationLifecycle.md>
+
+  [Application Lifecycle 2]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161021_ApplicationLifeCycle2/161021_ApplicationLifeCycle2.md>
