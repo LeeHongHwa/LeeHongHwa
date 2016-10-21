@@ -63,13 +63,13 @@
 	    [super viewWillAppear:YES];
 	}
 
-	//view의 하위뷰들의 레이아웃이 결정되기 직전 호출 (autoLayout 설정)
+	//view의 하위뷰들의 레이아웃이 결정되기 직전 호출 (autoLayout 설정 준비)
 	- (void)viewWillLayoutSubviews
 	{
 	    [super viewWillLayoutSubviews];
 	}
 
-	//view의 하위뷰들의 레이아웃이 결정된 후 호출, 주로 view의 하위뷰들이 사이즈 조정이 필요할 때 호출
+	//view의 하위뷰들의 레이아웃이 결정된 후 호출, 주로 view의 하위뷰들이 사이즈 조정이 필요할 때 호출 (autoLayout 설정 완료)
 	- (void)viewDidLayoutSubviews
 	{
 	    [super viewDidLayoutSubviews];
