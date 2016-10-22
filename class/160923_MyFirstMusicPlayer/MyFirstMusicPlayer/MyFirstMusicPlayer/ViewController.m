@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
 /**
- * viewController 클래스
+   viewController 클래스
  */
 @interface ViewController () <AVAudioPlayerDelegate>
 
@@ -34,6 +34,7 @@
  * @param currentTime 현재 재생되고 있는 시간
  * @param duration 총 재생 시간
  */
+//왜 여기 안에다 넣었을까?
 - (void)displayTime:(NSTimeInterval)currentTime
         duration:(NSTimeInterval)duration;
 
@@ -48,66 +49,82 @@
 
 //return 값이 없다
 //super가 있는걸 보니 override한것 같다.
+//view가 Loda된 직후 이다 그 이후엔 will,didsubview will,didappear 인데 subview는 하위의 view의 수치를 계산해 주는곳이고 appear는 화면전환이 되면서 반복 호출이 되므로 did에 초기값지정한다 해야한다
 - (void)viewDidLoad {
     
     //부모 클래스의 viewDidLoad메서드를 실행 시키다.
     [super viewDidLoad];
     
-    //자료형: CGRect
+    //자료형: CGRect: CGPoint(x,y), CGSize(width,height) struct
     //변수 이름: labelFrame, buttonFrame
     CGRect labelFrame = CGRectMake(30.0f, 30.0f, 250.f, 30.f);
     CGRect buttonFrame = CGRectMake(30.f, 70.f, 50.f, 30.f);
     
     //property(playButton)값 초기화
-    //UIButton 자료형 할당 후 buttonFrame값으로 초기화
+    //UIButton 객체생성, frame 지정
     self.playButton = [[UIButton alloc] initWithFrame:buttonFrame];
     
+    //normal 상태일때 button의 title값 지정
     [self.playButton setTitle:@"play" forState:UIControlStateNormal];
     
+    //selected 상태일때 button의 title값 지정
     [self.playButton setTitle:@"pause" forState:UIControlStateSelected];
     
+    //normal 상태일때 button의 titleColor값 지정
     [self.playButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     
+    //selected 상태일때 button의 titleColor값 지정
     [self.playButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
     
+    //button의 backgroundColor 지정
     [self.playButton setBackgroundColor:[UIColor yellowColor]];
     
+    //button의 target,action, event 지정
     [self.playButton addTarget:self
                         action:@selector(clickPlayButton:)
               forControlEvents:UIControlEventTouchUpInside];
     
+    //addSubview 하위뷰 설정
     [self.view addSubview:self.playButton];
     
-    //property(timeLabel)값 초기화
-    //UILabel 자료형 할당 후 labelFrame값으로 초기화
+    //label객체 생성
     self.timeLabel = [[UILabel alloc] initWithFrame:labelFrame];
     
+    //textColor 설정
     [self.timeLabel setTextColor:[UIColor brownColor]];
+    
+    //addSubview 하위뷰 설정
     [self.view addSubview:self.timeLabel];
     
+    //0분 0초 지정
     [self displayTime:0
              duration:0];
     
-
+    //잘은 모르겠지만 bundle에 있는 resource의 URL과 Extension을 가져오는것 같다.
     NSURL *soundFileURL = [[NSBundle mainBundle] URLForResource:@"sound" withExtension:@"mp3"];
     
-    //property(player)값 초기화
-    //AVAudioPlayer 자료형 할당 후 soundFileURL값으로 초기화
+    //AVAudioPlayer 객체 생성
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     
+    //델리게이트 설정
     [self.player setDelegate:self];
     
 }
 
 #pragma mark - Display Something
-
+/**
+ * crrentTime과 duration을 labelview에 표시
+ */
 - (void)displayTime:(NSTimeInterval)currentTime duration:(NSTimeInterval)duration {
+    //60나누기를 하면 내림이 되므로 분만 나옴
     NSInteger currentMin = (NSInteger)(currentTime / 60.0);
+    //나머지는 나머지가 나오므로 초가 나옴
     NSInteger currentSec = ((NSInteger)currentTime % 60);
     
     NSInteger durationMin = (NSInteger)(duration / 60.0);
     NSInteger durationSec = ((NSInteger)duration % 60);
     
+    //%02는 소수 2번째 자리까지 나옴
     NSString *timeString = [[NSString alloc] initWithFormat:@"%02ld:%02ld / %02ld:%02ld", currentMin, currentSec, durationMin, durationSec];
     
     [self.timeLabel setText:timeString];
@@ -119,6 +136,7 @@
  * UIButton 자료형인 property(sender)를 받는다
  */
 - (void)clickPlayButton:(UIButton *)sender {
+    //selected된 상태를 반대 값으로 변경
     [sender setSelected:!sender.selected];
     
     if (sender.isSelected == YES) {
