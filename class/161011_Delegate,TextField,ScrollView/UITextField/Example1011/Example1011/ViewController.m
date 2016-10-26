@@ -20,7 +20,8 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
 //    //텍스트 필드 객체 생성
@@ -112,7 +113,7 @@
 //    }else {
 //        self.pageLabel.text = @"page 3";
 //    }
-
+}
 //버튼을 누르면 텍스트에 입력한 정보를 라벨에 출력함
 - (void)diplayText:(UIButton *)sender
 {

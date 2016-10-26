@@ -48,8 +48,7 @@
     [self updateLayout];
 }
 
-
-
+//frame을 뺀 모든것
 - (void)createView
 {
     //Display
