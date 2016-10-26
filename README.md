@@ -33,6 +33,8 @@
   - [AutoLayout, SizeClass]
   - [Application Lifecycle]
   - [Application Lifecycle 2]
+  - [ViewController, Present Modally, NavigationVC]
+  - [Navigation View Controller 2, Tool Bar, Tab Bar Controller]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -87,3 +89,7 @@
   [Application Lifecycle]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161020_ApplicationLifecycle/161020_ApplicationLifecycle.md>
 
   [Application Lifecycle 2]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161021_ApplicationLifeCycle2/161021_ApplicationLifeCycle2.md>
+
+  [ViewController, Present Modally, NavigationVC]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161024_ViewController%2CPresentModally%2CNavigationVC/161024_ViewController%2CPresentModally%2CNavigationVC.md>
+
+  [Navigation View Controller 2, Tool Bar, Tab Bar Controller]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161025_NavigationViewController2%2CToolBar%2CTabBarController/161025_NavigationViewController2%2CToolBar%2CTabBarController.md>
