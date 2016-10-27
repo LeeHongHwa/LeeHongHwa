@@ -35,6 +35,7 @@
   - [Application Lifecycle 2]
   - [ViewController, Present Modally, NavigationVC]
   - [Navigation View Controller 2, Tool Bar, Tab Bar Controller]
+  - [UIAlertController, UIGestureRecognizer, Block]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -93,3 +94,5 @@
   [ViewController, Present Modally, NavigationVC]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161024_ViewController%2CPresentModally%2CNavigationVC/161024_ViewController%2CPresentModally%2CNavigationVC.md>
 
   [Navigation View Controller 2, Tool Bar, Tab Bar Controller]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161025_NavigationViewController2%2CToolBar%2CTabBarController/161025_NavigationViewController2%2CToolBar%2CTabBarController.md>
+
+  [UIAlertController, UIGestureRecognizer, Block]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161027_UIAlertController%2CUIGestureRecognizer%2CBlock/161027_UIAlertController%2CUIGestureRecognizer%2CBlock.md>
