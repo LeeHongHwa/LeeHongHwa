@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()<UIScrollViewDelegate,UITextFieldDelegate>
+@interface ViewController ()<UIScrollViewDelegate, UITextFieldDelegate>
 ///텍스트 필드에 입력한 결과값
 @property UILabel *resultText;
 ///텍스트 입력창
@@ -25,37 +25,38 @@
     [super viewDidLoad];
 
 //    //텍스트 필드 객체 생성
-//    self.inputText = [[UITextField alloc] init];
-//    self.inputText.frame = CGRectMake(20, 20, 200, 50);
-//    self.inputText.placeholder = @"텍스트 입력";
-//    self.inputText.font = [UIFont systemFontOfSize:15];
-//    self.inputText.textAlignment = NSTextAlignmentCenter;
-//    self.inputText.borderStyle = UITextBorderStyleLine;
-//    
-//    [self.view addSubview:self.inputText];
-//    
-//    //UIButton객체 생성
-//    UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    confirmBtn.frame = CGRectMake(216, self.inputText.frame.origin.y, 50, 50);
-//    
-//    [confirmBtn setTitle:@"확인" forState:UIControlStateNormal];
-//    
-//    [confirmBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-//    
-//    [confirmBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-//    
-//    [confirmBtn setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
-//    
-//    [confirmBtn addTarget:self action:@selector(diplayText:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:confirmBtn];
-//    
-//    //결과창 객체 생성
-//    self.resultText = [[UILabel alloc] init];
-//    self.resultText.text = @"결과: 텍스트를 입력해주세요";
-//    self.resultText.frame = CGRectMake(0, self.inputText.frame.size.height+16, self.inputText.frame.size.width, self.inputText.frame.size.height);
-//    [self.inputText addSubview:self.resultText];
-//}
+    self.inputText = [[UITextField alloc] init];
+    self.inputText.frame = CGRectMake(20, 20, 200, 50);
+    self.inputText.placeholder = @"텍스트 입력";
+    self.inputText.font = [UIFont systemFontOfSize:15];
+    self.inputText.textAlignment = NSTextAlignmentCenter;
+    self.inputText.borderStyle = UITextBorderStyleLine;
+    self.inputText.delegate = self;
     
+    [self.view addSubview:self.inputText];
+    
+    //UIButton객체 생성
+    UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    confirmBtn.frame = CGRectMake(216, self.inputText.frame.origin.y, 50, 50);
+    
+    [confirmBtn setTitle:@"확인" forState:UIControlStateNormal];
+    
+    [confirmBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    [confirmBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    
+    [confirmBtn setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+    
+    [confirmBtn addTarget:self action:@selector(diplayText:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:confirmBtn];
+    
+    //결과창 객체 생성
+    self.resultText = [[UILabel alloc] init];
+    self.resultText.text = @"결과: 텍스트를 입력해주세요";
+    self.resultText.frame = CGRectMake(0, self.inputText.frame.size.height+16, self.inputText.frame.size.width, self.inputText.frame.size.height);
+    [self.inputText addSubview:self.resultText];
+}
+
     
 //------------------------------------------------- scrollView 연습 -----------------------------------------------
 //스크롤뷰 최초 생성시 맨아래 부분에 있어야 스크롤이 가능하다
@@ -113,7 +114,6 @@
 //    }else {
 //        self.pageLabel.text = @"page 3";
 //    }
-}
 //버튼을 누르면 텍스트에 입력한 정보를 라벨에 출력함
 - (void)diplayText:(UIButton *)sender
 {
@@ -128,10 +128,13 @@
     }
 }
 
-//리턴을 눌렀을때 resign을 잘않쓰고 remove한다
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    return [textField resignFirstResponder];
+//리턴을 눌렀을때 resign을 잘않쓰고 endEditing한다
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.inputText == textField) {
+         [textField endEditing:YES];
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -28,6 +28,7 @@
 
 @protocol ItemViewDelegate <NSObject>
 
+//delegate method
 - (void)didSelectedItemView:(ItemView *)itemView;
 
 @end

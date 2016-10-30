@@ -63,6 +63,7 @@
 
 - (void)onTouchupInsideItem:(UIButton *)sender
 {
+    //self.delegate에 delegate method가 구현이 되있나 확인
     if ([self.delegate respondsToSelector:@selector(didSelectedItemView:)]) {
         [self.delegate didSelectedItemView:self];
     }

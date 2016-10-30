@@ -116,13 +116,12 @@
 //리턴시 키보드 숨김
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ( textField == self.pwTF){
+    if (textField == self.pwTF){
     
         [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        [textField resignFirstResponder];
+        [textField endEditing:YES];
     }else {
         [self.pwTF becomeFirstResponder];
-        
     }
     
     return YES;
