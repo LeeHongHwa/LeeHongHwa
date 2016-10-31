@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  Example1031
+//
+//  Created by david on 2016. 10. 31..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "MySingleton.h"
+
+
+static const NSString *MyName = @"Yagom";
+//프로젝트 전체적으로 지켜야할 값들
+static const NSInteger MaxStudentCount = 30;
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

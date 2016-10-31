@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키보드 없음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNn-W5-eEh">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{(0,0), (0,0)}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t03-do-xgQ">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-pI-cTM">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="t03-do-xgQ" firstAttribute="top" secondItem="xNn-W5-eEh" secondAttribute="bottom" constant="8" id="7jB-HG-2Xe"/>
+                            <constraint firstItem="t03-do-xgQ" firstAttribute="leading" secondItem="xNn-W5-eEh" secondAttribute="leading" id="8cj-8I-SeS"/>
+                            <constraint firstItem="BjM-pI-cTM" firstAttribute="leading" secondItem="xNn-W5-eEh" secondAttribute="leading" id="ISb-Mh-WbQ"/>
+                            <constraint firstItem="BjM-pI-cTM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LdL-3f-q85"/>
+                            <constraint firstItem="BjM-pI-cTM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="NSx-Kz-ZxK"/>
+                            <constraint firstItem="xNn-W5-eEh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="UOa-Sw-8zI"/>
+                            <constraint firstItem="BjM-pI-cTM" firstAttribute="top" secondItem="t03-do-xgQ" secondAttribute="bottom" constant="16" id="oGC-az-mn0"/>
+                            <constraint firstAttribute="trailing" secondItem="BjM-pI-cTM" secondAttribute="trailing" constant="16" id="qsg-lo-SSw"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="S3G-hL-ADw" appends="YES" id="eOh-N8-7e8"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="keyboardFrameLB" destination="t03-do-xgQ" id="j4k-Ab-Pwe"/>
+                        <outlet property="keyboardStateLB" destination="xNn-W5-eEh" id="lT7-Gv-KwZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="S3G-hL-ADw">
+                    <connections>
+                        <action selector="tabBackground:" destination="BYZ-38-t0r" id="4SG-uq-2rY"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,25 @@
+//
+//  PrefixHeader.pch
+//  ChangeFontNotification
+//
+//  Created by david on 2016. 10. 31..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//NSNotificationName, NSString 사용하기위해 import
+#import <UIKit/UIKit.h>
+
+//NSNotificationName 설정
+static const NSNotificationName DidChangeSettingNotification = @"DidChangeSetting";
+
+//UserInfoKey 설정
+static const NSString *UserInfoKeyLabelTextColor = @"label_text_color";
+static const NSString *UserInfoKeyLabelFontSize = @"label_fonr_size";
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
