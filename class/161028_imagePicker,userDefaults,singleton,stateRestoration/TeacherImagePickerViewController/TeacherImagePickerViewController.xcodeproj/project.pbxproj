@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		630CFCBC1DC2F1A300265ECE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 630CFCBB1DC2F1A300265ECE /* main.m */; };
+		630CFCBF1DC2F1A300265ECE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630CFCBE1DC2F1A300265ECE /* AppDelegate.m */; };
+		630CFCC21DC2F1A300265ECE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630CFCC11DC2F1A300265ECE /* ViewController.m */; };
+		630CFCC51DC2F1A300265ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630CFCC31DC2F1A300265ECE /* Main.storyboard */; };
+		630CFCC71DC2F1A300265ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630CFCC61DC2F1A300265ECE /* Assets.xcassets */; };
+		630CFCCA1DC2F1A300265ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630CFCC81DC2F1A300265ECE /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		630CFCB71DC2F1A300265ECE /* TeacherImagePickerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherImagePickerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		630CFCBB1DC2F1A300265ECE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		630CFCBD1DC2F1A300265ECE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		630CFCBE1DC2F1A300265ECE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		630CFCC01DC2F1A300265ECE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		630CFCC11DC2F1A300265ECE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		630CFCC41DC2F1A300265ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		630CFCC61DC2F1A300265ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		630CFCC91DC2F1A300265ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		630CFCCB1DC2F1A300265ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		630CFCB41DC2F1A300265ECE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		630CFCAE1DC2F1A300265ECE = {
+			isa = PBXGroup;
+			children = (
+				630CFCB91DC2F1A300265ECE /* TeacherImagePickerViewController */,
+				630CFCB81DC2F1A300265ECE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		630CFCB81DC2F1A300265ECE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				630CFCB71DC2F1A300265ECE /* TeacherImagePickerViewController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		630CFCB91DC2F1A300265ECE /* TeacherImagePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				630CFCBD1DC2F1A300265ECE /* AppDelegate.h */,
+				630CFCBE1DC2F1A300265ECE /* AppDelegate.m */,
+				630CFCC01DC2F1A300265ECE /* ViewController.h */,
+				630CFCC11DC2F1A300265ECE /* ViewController.m */,
+				630CFCC31DC2F1A300265ECE /* Main.storyboard */,
+				630CFCC61DC2F1A300265ECE /* Assets.xcassets */,
+				630CFCC81DC2F1A300265ECE /* LaunchScreen.storyboard */,
+				630CFCCB1DC2F1A300265ECE /* Info.plist */,
+				630CFCBA1DC2F1A300265ECE /* Supporting Files */,
+			);
+			path = TeacherImagePickerViewController;
+			sourceTree = "<group>";
+		};
+		630CFCBA1DC2F1A300265ECE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				630CFCBB1DC2F1A300265ECE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		630CFCB61DC2F1A300265ECE /* TeacherImagePickerViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 630CFCCE1DC2F1A300265ECE /* Build configuration list for PBXNativeTarget "TeacherImagePickerViewController" */;
+			buildPhases = (
+				630CFCB31DC2F1A300265ECE /* Sources */,
+				630CFCB41DC2F1A300265ECE /* Frameworks */,
+				630CFCB51DC2F1A300265ECE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeacherImagePickerViewController;
+			productName = TeacherImagePickerViewController;
+			productReference = 630CFCB71DC2F1A300265ECE /* TeacherImagePickerViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		630CFCAF1DC2F1A300265ECE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = david;
+				TargetAttributes = {
+					630CFCB61DC2F1A300265ECE = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 630CFCB21DC2F1A300265ECE /* Build configuration list for PBXProject "TeacherImagePickerViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 630CFCAE1DC2F1A300265ECE;
+			productRefGroup = 630CFCB81DC2F1A300265ECE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				630CFCB61DC2F1A300265ECE /* TeacherImagePickerViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		630CFCB51DC2F1A300265ECE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630CFCCA1DC2F1A300265ECE /* LaunchScreen.storyboard in Resources */,
+				630CFCC71DC2F1A300265ECE /* Assets.xcassets in Resources */,
+				630CFCC51DC2F1A300265ECE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		630CFCB31DC2F1A300265ECE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630CFCC21DC2F1A300265ECE /* ViewController.m in Sources */,
+				630CFCBF1DC2F1A300265ECE /* AppDelegate.m in Sources */,
+				630CFCBC1DC2F1A300265ECE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		630CFCC31DC2F1A300265ECE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				630CFCC41DC2F1A300265ECE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		630CFCC81DC2F1A300265ECE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				630CFCC91DC2F1A300265ECE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		630CFCCC1DC2F1A300265ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		630CFCCD1DC2F1A300265ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		630CFCCF1DC2F1A300265ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TeacherImagePickerViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyhonghwa.TeacherImagePickerViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		630CFCD01DC2F1A300265ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TeacherImagePickerViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyhonghwa.TeacherImagePickerViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		630CFCB21DC2F1A300265ECE /* Build configuration list for PBXProject "TeacherImagePickerViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630CFCCC1DC2F1A300265ECE /* Debug */,
+				630CFCCD1DC2F1A300265ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		630CFCCE1DC2F1A300265ECE /* Build configuration list for PBXNativeTarget "TeacherImagePickerViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630CFCCF1DC2F1A300265ECE /* Debug */,
+				630CFCD01DC2F1A300265ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 630CFCAF1DC2F1A300265ECE /* Project object */;
+}
