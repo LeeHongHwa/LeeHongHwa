@@ -36,6 +36,8 @@
   - [ViewController, Present Modally, NavigationVC]
   - [Navigation View Controller 2, Tool Bar, Tab Bar Controller]
   - [UIAlertController, UIGestureRecognizer, Block]
+  - [imagePicker, userDefaults, singleton, stateRestoration]
+  - [Precompiled Header, NSNotificationCenter, NSNotification]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -96,3 +98,7 @@
   [Navigation View Controller 2, Tool Bar, Tab Bar Controller]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161025_NavigationViewController2%2CToolBar%2CTabBarController/161025_NavigationViewController2%2CToolBar%2CTabBarController.md>
 
   [UIAlertController, UIGestureRecognizer, Block]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161027_UIAlertController%2CUIGestureRecognizer%2CBlock/161027_UIAlertController%2CUIGestureRecognizer%2CBlock.md>
+
+  [imagePicker, userDefaults, singleton, stateRestoration]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161028_imagePicker%2CuserDefaults%2Csingleton%2CstateRestoration/161028_imagePicker%2CuserDefaults%2Csingleton%2CstateRestoration.md>
+
+  [Precompiled Header, NSNotificationCenter, NSNotification]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161031_PrecompiledHeader%2CNSNotificationCenter%2CNSNotification/161031_PrecompiledHeader%2CNSNotificationCenter%2CNSNotification.md>
