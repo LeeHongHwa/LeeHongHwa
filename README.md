@@ -38,6 +38,7 @@
   - [UIAlertController, UIGestureRecognizer, Block]
   - [imagePicker, userDefaults, singleton, stateRestoration]
   - [Precompiled Header, NSNotificationCenter, NSNotification]
+  - [Typedef, Constant, Enumeration, Option, Macro, Static]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -102,3 +103,5 @@
   [imagePicker, userDefaults, singleton, stateRestoration]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161028_imagePicker%2CuserDefaults%2Csingleton%2CstateRestoration/161028_imagePicker%2CuserDefaults%2Csingleton%2CstateRestoration.md>
 
   [Precompiled Header, NSNotificationCenter, NSNotification]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161031_PrecompiledHeader%2CNSNotificationCenter%2CNSNotification/161031_PrecompiledHeader%2CNSNotificationCenter%2CNSNotification.md>
+
+  [Typedef, Constant, Enumeration, Option, Macro, Static]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161101_Typedef%2CConstant%2CEnumeration%2COption%2CMacro%2CStatic/161101_Typedef%2CConstant%2CEnumeration%2COption%2CMacro%2CStatic.md>
