@@ -1,0 +1,24 @@
+//
+//  PrefixHeader.pch
+//  Login
+//
+//  Created by david on 2016. 11. 2..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import <UIKit/UIKit.h>
+#import "DataCenter.h"
+
+//NSNotificationName 설정
+static const NSNotificationName DidreceiveChangeLoginState = @"DidreceiveChangeLoginState";
+static const NSNotificationName DidreceiveChangeLogoutState = @"DidreceiveChangeLogoutState";
+
+//UserInfoKey 설정
+static NSString *const userID = @"userIdentification";
+static NSString *const userPW = @"userPassWord";
+static NSString *const userLoginState = @"user_login_state";
+static NSString *const userLogoutState = @"user_logout_state";
+
+#endif /* PrefixHeader_pch */
