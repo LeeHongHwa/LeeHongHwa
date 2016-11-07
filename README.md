@@ -40,6 +40,7 @@
   - [Precompiled Header, NSNotificationCenter, NSNotification]
   - [Typedef, Constant, Enumeration, Option, Macro, Static]
   - [데이터 저장 방법(Property list)]
+  - [Property, Key Value Observing ,Etc]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -108,3 +109,5 @@
   [Typedef, Constant, Enumeration, Option, Macro, Static]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161101_Typedef%2CConstant%2CEnumeration%2COption%2CMacro%2CStatic/161101_Typedef%2CConstant%2CEnumeration%2COption%2CMacro%2CStatic.md>
 
   [데이터 저장 방법(Property list)]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161103_Plist%2CHakerton/161103_Plist%2CHakerton.md>
+
+  [Property, Key Value Observing ,Etc]: <https://github.com/LeeHongHwa/LeeHongHwa/blob/class/class/161107_Property%2CKeyValueObserving%2CEtc/161107_Property%2CKeyValueObserving%2CEtc.md>
