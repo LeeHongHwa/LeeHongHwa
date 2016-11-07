@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  UserInfomation
+//
+//  Created by david on 2016. 11. 7..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UserInfomation.h"
+
+//notificationName setting
+static const NSNotificationName DidSettingUserInfo = @"DidSettingUserInfo";
+
+//key value setting
+static const NSString *userID = @"userID";
+static const NSString *userPW = @"userPW";
+static const NSString *userLastName = @"userLastName";
+static const NSString *userFirstName = @"userFirstName";
+static const NSString * _Nonnull userAge = @"userAge";
+static const NSString * _Nonnull userHobby = @"userHobby";
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
