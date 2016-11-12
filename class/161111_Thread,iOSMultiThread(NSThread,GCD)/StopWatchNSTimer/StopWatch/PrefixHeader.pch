@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  StopWatch
+//
+//  Created by david on 2016. 11. 12..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+//button이 isSelected = YES 상태 일때의 색상
+#define selectedOnBackgroundColor [UIColor colorWithRed:13.f/255.f green:71.f/255.f blue:161.f/255.f alpha:1];
+//button이 isSelected = NO 상태 일때의 색상
+#define selectedOFFBackgroundColor [UIColor colorWithRed:41.f/255.f green:121.f/255.f blue:255.f/255.f alpha:1];
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
