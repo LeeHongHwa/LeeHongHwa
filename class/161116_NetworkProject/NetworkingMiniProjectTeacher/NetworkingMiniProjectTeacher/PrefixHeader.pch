@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  NetworkingMiniProjectTeacher
+//
+//  Created by david on 2016. 11. 16..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UserInformation.h"
+#import "RequestObject.h"
+#import <UIKit/UIKit.h>
+static NSString *const ImageListUpdatedNotification = @"ImageListUpdated";
+static NSString *const ImageListUpdateFailedNotification = @"ImageListUpdateFailed";
+static NSString *const DidReceiveShowImageView = @"didReceiveShowImageView";
+
+#endif /* PrefixHeader_pch */
