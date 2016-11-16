@@ -1,0 +1,24 @@
+//
+//  PrefixHeader.pch
+//  NetworkingMiniProject
+//
+//  Created by david on 2016. 11. 15..
+//  Copyright © 2016년 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UserInformation.h"
+#import "RequestObject.h"
+
+//static NSString *const userId = @"user_Id";
+
+//userInfo Key
+static NSString *const tumbnailImage = @"tumbnail_Image";
+
+//postNotificationName
+static NSString *const didReceiveImageListData = @"didReceiveImageListData";
+static NSString *const didReceiveTumbnailImage = @"didReceiveTumbnailImage";
+
+
+#endif /* PrefixHeader_pch */
