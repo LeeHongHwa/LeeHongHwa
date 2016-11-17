@@ -207,4 +207,101 @@ static NSString *const basicURL = @"http://iosschool.yagom.net:8080";
     [dataTask resume];
 }
 
++ (void)requestChangeImageWithImageId:(NSString *)imageId image:(UIImage *)image title:(NSString *)title
+{
+    NSString *userId = [[UserInformation sharedUserInfo] userId];
+    
+    NSURL *destinationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/upload", basicURL]];
+    
+    NSMutableURLRequest *requset = [[NSMutableURLRequest alloc] init];
+    requset.URL = destinationURL;
+    requset.HTTPMethod = @"POST";
+    
+    NSString *boundaryString = @"----HONG_BOUNDARY_STRING";
+    NSString *contentDescription = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundaryString];
+    
+    [requset addValue:contentDescription
+   forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableData *bodyData = [[NSMutableData alloc] init];
+    
+    //1
+    //data Start boundary
+    NSData *boundaryData = [[NSString stringWithFormat:@"--%@\r\n", boundaryString] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:boundaryData];
+    
+    //user ID
+    NSData *nameData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"user_id\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:nameData];
+    
+    NSData *valueData = [[NSString stringWithFormat:@"%@\r\n",userId] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:valueData];
+    
+    //2
+    [bodyData appendData:boundaryData];
+
+    //image ID
+    nameData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"id\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:nameData];
+    
+    valueData = [[NSString stringWithFormat:@"%@\r\n",imageId] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:valueData];
+    
+    //3
+    [bodyData appendData:boundaryData];
+    
+    //image Title
+    nameData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"title\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:nameData];
+    
+    valueData = [[NSString stringWithFormat:@"%@\r\n",title] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:valueData];
+    
+    //4
+    [bodyData appendData:boundaryData];
+    
+    nameData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_data\"; filename=\"image.jpg\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:nameData];
+    
+    NSData *imageContentTypeData = [[NSString stringWithFormat:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:imageContentTypeData];
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
+    [bodyData appendData:imageData];
+    
+    NSData *finishData = [[NSString stringWithFormat:@"\r\n--%@--\r\n",boundaryString] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [bodyData appendData:finishData];
+
+    
+    id uploadTaskHandler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
+        
+        NSLog(@"%@",response);
+        
+        NSError *jsonError;
+        
+        NSDictionary *uploadTaskDic = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:NSJSONReadingMutableLeaves error:&jsonError];
+        NSString *changedImageURLString = [uploadTaskDic objectForKey:@"data"];
+        NSString *result = [uploadTaskDic objectForKey:@"result"];
+        
+        if (changedImageURLString == nil)
+        {
+            NSLog(@"전달받은 데이터가 없습니다");
+        }
+        NSLog(@"이미지 변경 상태 %@ 전달받은 url %@",result, changedImageURLString);
+        
+        [self requestImageList];
+        
+    };
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:requset
+                                                               fromData:bodyData completionHandler:uploadTaskHandler];
+    
+    [uploadTask resume];
+}
+
 @end

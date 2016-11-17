@@ -77,7 +77,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sVk-tG-FCd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sVk-tG-FCd">
                                 <rect key="frame" x="12" y="76" width="351" height="579"/>
                             </imageView>
                         </subviews>
@@ -89,8 +89,15 @@
                             <constraint firstItem="sVk-tG-FCd" firstAttribute="top" secondItem="cB9-U5-F4q" secondAttribute="bottom" constant="12" id="sUX-XK-7u8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="I2X-sp-9mI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="sY4-r8-Yy1">
+                            <connections>
+                                <action selector="clickChangeImageButton:" destination="SdK-eZ-u5o" id="56p-GJ-Z5e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="sVk-tG-FCd" id="Hgp-H4-T19"/>
+                        <outlet property="imageView" destination="sVk-tG-FCd" id="bk0-6m-nmo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MiP-tJ-oWU" userLabel="First Responder" sceneMemberID="firstResponder"/>

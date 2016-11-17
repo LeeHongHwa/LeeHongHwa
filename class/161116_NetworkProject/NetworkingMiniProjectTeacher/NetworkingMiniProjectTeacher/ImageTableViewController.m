@@ -10,6 +10,8 @@
 
 @interface ImageTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property NSString *selectedCellImageTitle;
+
 @end
 
 @implementation ImageTableViewController
@@ -20,6 +22,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self.tableView
                                              selector:@selector(reloadData)
                                                  name:ImageListUpdatedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(DidReceiveViewDidLoad:)
+                                                 name:@"DidReceiveViewDidLoad"
                                                object:nil];
 }
 
@@ -255,12 +262,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *title = selectedCell.textLabel.text;
-    [[NSNotificationCenter defaultCenter] postNotificationName:DidReceiveShowImageView
-                                                        object:nil
-                                                      userInfo:@{@"title":title}];
+    self.selectedCellImageTitle = selectedCell.textLabel.text;
 }
 
+- (void)DidReceiveViewDidLoad:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:DidReceiveShowImageView
+                                                        object:nil
+                                                      userInfo:@{@"title":self.selectedCellImageTitle}];
+}
 
 /*
 // Override to support rearranging the table view.
