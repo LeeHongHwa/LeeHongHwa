@@ -30,6 +30,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *destinationURLString = [NSString stringWithFormat:@"www.naver.com/api/upload"];
+    
+    //create URL
+    NSURL *destinationURL = [NSURL URLWithString:destinationURLString];
+    
+    //create request
+    NSMutableURLRequest *requset = [[NSMutableURLRequest alloc] init];
+    [requset setHTTPMethod:@"POST"];
+    [requset setURL:destinationURL];
+    
+    NSString *boundaryString = @"--------------honghwa"; //----4개이상
+    //데이터 폼과 바운더리는 이거다
+    NSString *contentDescription = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundaryString];
+    
+    //헤더에 넣어준다 폼과 바운더리를 보낸다 개발자야 봐라
+    //헤더부분에 Content-Type이라는 영역에 넣어준다
+    [requset addValue:contentDescription
+   forHTTPHeaderField:@"Content-Type"];
+    NSLog(@"request URL : %@",requset.allHTTPHeaderFields);
+    
+    
     //이미지 데이터 리스트 노티피케이션
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveImageListData:)

@@ -8,7 +8,20 @@
 
 #import "RequestObject.h"
 
-static NSString *const basicURL = @"http://iosschool.yagom.net";
+typedef NS_ENUM(NSInteger, RequestType)
+{
+    RequestTypeImageList,
+    RequestTypeUploadImage,
+    RequestTypeDeleteImage
+};
+
+static NSString *const ParamNameUserIDKey = @"user_id";
+static NSString *const ParamNameImageTitlekey = @"title";
+static NSString *const ParamNameImageDatakey = @"image_data";
+static NSString *const ParamNameImageIDkey = @"image_id";
+
+static NSString *const baseURLString = @"http://iosschool.yagom.net:8080/";
+
 
 @implementation RequestObject
 
@@ -22,58 +35,88 @@ static NSString *const basicURL = @"http://iosschool.yagom.net";
     return sharedRequestManager;
 }
 
-//- (void)requestUploadImage:(NSString *)imageName imageData:(NSData *)imageData
-//{
-//    //image File
-//    NSString *boundary = @"YOURE_BOUNDARY_STRING";
-//    NSMutableData *body = [NSMutableData data];
-//    
-//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo\"; filename=\"%@.png\"\r\n",imageName] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[NSData dataWithData:imageData]];
-//    
-//    //image Name
-//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"imageName\"; filename=\"%@.png\"\r\n",imageName] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[NSData dataWithData:imageData]];
-//    
-//}
+
+- (NSURL *)requestURL:(RequestType)type param:(NSDictionary *)paramDic
+{
+    NSMutableString *urlString = [baseURLString mutableCopy];
+    switch (type)
+    {
+        case RequestTypeImageList:
+            [urlString appendString:@"api/list"];
+            break;
+            
+        case RequestTypeDeleteImage:
+            [urlString appendString:@"api/image"];
+            break;
+            
+        case RequestTypeUploadImage:
+            [urlString appendString:@"api/upload"];
+            break;
+            
+        default:
+            return nil;
+            break;
+    }
+    
+    if (paramDic.count)
+    {
+        NSMutableString *paramString = [NSMutableString stringWithFormat:@"?"];
+        
+        for (NSString *key in paramDic)
+        {
+            [paramString appendString:key];
+            [paramString appendString:@"="];
+            
+            id value = paramDic[key];
+            if ([value isKindOfClass:[NSString class]])
+            {
+                [paramString appendString:value];
+            } else
+            {
+                value = [NSString stringWithFormat:@"%@", value];
+                [paramString appendString:value];
+            }
+            [paramString appendString:@"&"];
+        }
+        [urlString appendString:paramString];
+    }
+    
+    return [NSURL URLWithString:urlString];
+}
+
 
 //requset Image List
-- (void)requestImageList {
+- (void)requestImageList
+{
+    id dataTaskHandler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
+        NSLog(@"%@", response);
+        NSLog(@"%@", error);
+        
+        if (data == nil) {
+            NSLog(@"데이터가 없습니다");
+        } else
+        {
+            NSError *JSONError;
+            NSDictionary *imageListDict = [NSJSONSerialization JSONObjectWithData:data
+                                            options:NSJSONReadingMutableLeaves
+                                              error:&JSONError];
+            if (JSONError != nil)
+            {
+                NSLog(@"%@",JSONError);
+            } else
+            {
+                [[UserInformation sharedUserInfo] setImageInfoList:[imageListDict objectForKey:@"list"]];
+            }
+        }
+        
+    };
     
-    //session
+    NSString *value = [[UserInformation sharedUserInfo] userId];
+    NSURL *requestURL = [self requestURL:RequestTypeImageList param:@{ParamNameUserIDKey:value}];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
-    //request
-    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@:8080/api/list?user_id=%@",basicURL, [[UserInformation sharedUserInfo] userId]]];
-    
-    //requestURL
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL];
-    request.HTTPMethod = @"GET";
-    
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-                                                completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                                    
-                                                    NSDictionary *imageListDic = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                                 options:NSJSONReadingAllowFragments
-                                                                                                                   error:&error];
-                                                    
-                                                    
-//                                                    //post Notification
-//                                                    [[NSNotificationCenter defaultCenter] postNotificationName:didReceiveImageListData
-//                                                                                                        object:nil
-//                                                                                                      userInfo:imageListDic];
-                                                }];
-    //start task
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:requestURL
+                                            completionHandler:dataTaskHandler];
     [dataTask resume];
 }
 
