@@ -11,10 +11,10 @@
 @implementation UserInformation
 
 //싱글턴 메서드
-+ (id)sharedUserInfo {
++ (instancetype)sharedUserInfo {
     static UserInformation *sharedUserInfo = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
         sharedUserInfo = [[self alloc] init];
     });
     return sharedUserInfo;

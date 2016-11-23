@@ -12,9 +12,13 @@
 
 ///사용자 아이디
 @property NSString *userId;
+
+///이미지 리스트
 @property NSArray *imageInfoList;
 
-//싱글턴 메서드
+/**
+ *  싱글턴 메서드
+ */
 + (instancetype)sharedUserInfo;
 
 @end

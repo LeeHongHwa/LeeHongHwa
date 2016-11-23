@@ -10,14 +10,13 @@
 
 @interface RequestObject : NSObject
 
-
-//싱글턴 메서드
-+ (id)sharedRequestManager;
-
-//- (void)requestUploadImage:(NSString *)imageName imageData:(NSData *)imageData;
-
 //이미지 리스트 요청
-- (void)requestImageList;
-//썸네일 이미지 요청
-- (void)requestTumbnailImage:(NSString *)URL;
++ (void)requestImageList;
+
+//이미지 업로드
++ (void)requestUploadImageWithTitle:(NSString *)title image:(UIImage *)image imageId:(NSString *)imageId;
+
+//이미지 삭제
++ (void)requestDeleteImageWithImageId:(NSString *)imageId;
+
 @end

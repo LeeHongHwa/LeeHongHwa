@@ -13,12 +13,15 @@
 
 //static NSString *const userId = @"user_Id";
 
-//userInfo Key
-static NSString *const tumbnailImage = @"tumbnail_Image";
+//UserInfo Key
+static NSString *const JSONTumbnailURLKey = @"tumbnail_Image";
+static NSString *const JSONImageURLKey = @"image_url";
+static NSString *const JSONImageIDKey = @"id";
 
-//postNotificationName
-static NSString *const didReceiveImageListData = @"didReceiveImageListData";
-static NSString *const didReceiveTumbnailImage = @"didReceiveTumbnailImage";
+//Post Notification Name
+static NSString *const imageListUpdatedNotification = @"imageListUpdatedNotification";
+static NSString *const ImageUploadDidSuccessNotification = @"ImageUploadSuccess";
+
 
 
 #endif /* PrefixHeader_pch */

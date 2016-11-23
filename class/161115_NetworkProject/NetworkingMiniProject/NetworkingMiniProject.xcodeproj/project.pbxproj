@@ -16,6 +16,7 @@
 		63C675711DDACF80005FEA9B /* RequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C675701DDACF80005FEA9B /* RequestObject.m */; };
 		63C675741DDACFC0005FEA9B /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C675731DDACFC0005FEA9B /* UserInformation.m */; };
 		63C675771DDAE5A8005FEA9B /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C675761DDAE5A8005FEA9B /* ImageCell.m */; };
+		63ED05D71DE5B05C0005D1F2 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63ED05D61DE5B05C0005D1F2 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		63C675731DDACFC0005FEA9B /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		63C675751DDAE5A8005FEA9B /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		63C675761DDAE5A8005FEA9B /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		63ED05D51DE5B05C0005D1F2 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		63ED05D61DE5B05C0005D1F2 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				63C6755B1DDAA601005FEA9B /* AppDelegate.m */,
 				63C6755D1DDAA601005FEA9B /* MainViewController.h */,
 				63C6755E1DDAA601005FEA9B /* MainViewController.m */,
+				63ED05D51DE5B05C0005D1F2 /* ImageViewController.h */,
+				63ED05D61DE5B05C0005D1F2 /* ImageViewController.m */,
 				63C675721DDACFC0005FEA9B /* UserInformation.h */,
 				63C675731DDACFC0005FEA9B /* UserInformation.m */,
 				63C6756F1DDACF80005FEA9B /* RequestObject.h */,
@@ -172,6 +177,7 @@
 				63C675741DDACFC0005FEA9B /* UserInformation.m in Sources */,
 				63C6755C1DDAA601005FEA9B /* AppDelegate.m in Sources */,
 				63C675711DDACF80005FEA9B /* RequestObject.m in Sources */,
+				63ED05D71DE5B05C0005D1F2 /* ImageViewController.m in Sources */,
 				63C675591DDAA601005FEA9B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +337,7 @@
 				63C6756D1DDAA601005FEA9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

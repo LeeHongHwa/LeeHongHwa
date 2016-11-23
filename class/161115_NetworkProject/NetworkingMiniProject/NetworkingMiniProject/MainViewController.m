@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "ImageViewController.h"
 #import "ImageCell.h"
 
 @interface MainViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -19,10 +20,10 @@
 @property NSString *imageName;
 ///선택된 이미지
 @property UIImage *selectedImage;
-///썸네일 이미지
-@property UIImage *tumbnailImage;
 ///이미지 데이터 리스트
 @property NSArray *imageDataList;
+///refreshControl
+@property UIRefreshControl *refreshControl;
 @end
 
 @implementation MainViewController
@@ -30,117 +31,116 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *destinationURLString = [NSString stringWithFormat:@"www.naver.com/api/upload"];
-    
-    //create URL
-    NSURL *destinationURL = [NSURL URLWithString:destinationURLString];
-    
-    //create request
-    NSMutableURLRequest *requset = [[NSMutableURLRequest alloc] init];
-    [requset setHTTPMethod:@"POST"];
-    [requset setURL:destinationURL];
-    
-    NSString *boundaryString = @"--------------honghwa"; //----4개이상
-    //데이터 폼과 바운더리는 이거다
-    NSString *contentDescription = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundaryString];
-    
-    //헤더에 넣어준다 폼과 바운더리를 보낸다 개발자야 봐라
-    //헤더부분에 Content-Type이라는 영역에 넣어준다
-    [requset addValue:contentDescription
-   forHTTPHeaderField:@"Content-Type"];
-    NSLog(@"request URL : %@",requset.allHTTPHeaderFields);
-    
-    
     //이미지 데이터 리스트 노티피케이션
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveImageListData:)
-                                                 name:didReceiveImageListData
+                                             selector:@selector(didReceiveImageUpdated)
+                                                 name:imageListUpdatedNotification
                                                object:nil];
     
-    //이미지 데이터 썸네일 노티피케이션
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveTumbnailImage:)
-                                                 name:didReceiveTumbnailImage
-                                               object:nil];
-    //show Alert
-    [self showLoginAlert];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    _refreshControl.tintColor = [UIColor blueColor];
+    [_refreshControl addTarget:[RequestObject class] action:@selector(requestImageList) forControlEvents:UIControlEventValueChanged];
+    [_imageTableView addSubview:_refreshControl];
+
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([[UserInformation sharedUserInfo] userId] == nil)
+    {
+        [self showLoginAlert];
+    }
+}
+
+#pragma mark - Reset
 //tableView reset method
 - (IBAction)clickResetButton:(UIBarButtonItem *)sender
 {
-    [self.imageTableView reloadData];
+    [RequestObject requestImageList];
 }
 
-#pragma mark -
-#pragma mark Notification
+#pragma mark - Notification
 //이미지 데이터 리스트 selector method
-- (void)didReceiveImageListData:(NSNotification *)notification
+- (void)didReceiveImageUpdated
 {
-    self.imageDataList = [[notification userInfo] objectForKey:@"list"];
+    self.imageDataList = [[UserInformation sharedUserInfo] imageInfoList];
+    [self.imageTableView reloadData];
+    [_refreshControl endRefreshing];
 }
 
-//이미지 데이터 썸네일 selector method
-- (void)didReceiveTumbnailImage:(NSNotification *)notification
-{
-    NSData *tumbnailData = [[notification userInfo] objectForKey:tumbnailImage];
-    
-    self.tumbnailImage = [UIImage imageWithData:tumbnailData];
-}
-
-
-#pragma mark -
-#pragma mark alert
-//show Alert
+#pragma mark - Alert
+//user ID Alert
 - (void)showLoginAlert
 {
-    //input ID
-    __block NSString *tempId;
-    //temp TextField
-    __block UITextField *tempField;
-    //weakSelf
-    __weak MainViewController *weakSelf = self;
-    
     //create Alert
     UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"아이디 입력"
-                                                                        message:@"아이디" preferredStyle:UIAlertControllerStyleAlert];
+                                                                        message:@"아이디"
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
     
     //create TextField
-    [loginAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+    [loginAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField)
+     {
         textField.textAlignment = NSTextAlignmentCenter;
         textField.placeholder = @"아이디를 입력해주세요";
-        tempField = textField;
     }];
     
-    //create Action
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        tempId = tempField.text;
-        
-        //tempId input(O)
-        if ([tempId length] > 0) {
-            //set User ID
-            [[UserInformation sharedUserInfo] setUserId:tempId];
-            //show Navigation Title
-            weakSelf.navigationTitle.title = tempId;
-            //request Image List
-            [[RequestObject sharedRequestManager] requestImageList];
-            //table View Reload
-            [self tableViewReload];
-        }else
-        {//tempId input(X)
+    //Setting Action Handler
+    id actionHandler = ^(UIAlertAction * _Nonnull action)
+    {
+        if (loginAlert.textFields.firstObject.text.length == 0 ||
+            [loginAlert.textFields.firstObject.text isEqualToString: @" "]||
+            [loginAlert.textFields.firstObject.text integerValue] == 0)
+        {
             [self showLoginAlert];
+        }else
+        {
+            [[UserInformation sharedUserInfo] setUserId:loginAlert.textFields.firstObject.text];
         }
-    }];
+        [RequestObject requestImageList];
+    };
+    
+    //create Action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:actionHandler];
     
     [loginAlert addAction:okAction];
 
     [self presentViewController:loginAlert animated:YES completion:nil];
 }
 
+//image Name Alert
+- (void)showImageNameSettingAlert:(UIImage *)image
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"이미지 이름"
+                                                                   message:@"이미지 이름을 입력해주세요"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    id actionHandler = ^(UIAlertAction * _Nonnull action) {
+        if (alert.textFields.firstObject.text.length == 0 ||
+            [alert.textFields.firstObject.text isEqualToString: @" "])
+        {
+            [self showImageNameSettingAlert:image];
+        }
+        [RequestObject requestUploadImageWithTitle:alert.textFields.firstObject.text image:image imageId:nil];
+    };
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:actionHandler];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField)
+     {
+         textField.textAlignment = NSTextAlignmentCenter;
+         textField.placeholder = @"사진의 이름을 입력해주세요";
+     }];
+    
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
-#pragma mark -
-#pragma mark tableView Delegate
+#pragma mark - TableView delegate
 //tableView Row
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -152,11 +152,22 @@
 {
     //custom cell
     ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
+    
     //jason data
     NSDictionary *imageDataDic = [_imageDataList objectAtIndex:indexPath.row];
     cell.cellTitle.text = [imageDataDic objectForKey:@"title"];
-    [[RequestObject sharedRequestManager] requestTumbnailImage:[imageDataDic objectForKey:@"thumbnail_url"]];
-    cell.cellImageView.image = _tumbnailImage;
+    
+    id dataTaskHandler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        UIImage *tumbnailImage = [UIImage imageWithData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.cellImageView.image = tumbnailImage;
+        });
+    };
+    
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:[imageDataDic objectForKey:@"thumbnail_url"]] completionHandler:dataTaskHandler];
+    
+    [dataTask resume];
+    
     return cell;
 }
 
@@ -166,20 +177,22 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
 }
-#pragma mark -
-#pragma mark tableView Method
 
-- (void)tableViewReload
+//tableView Edit
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //weakSelf
-    __weak MainViewController *weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [weakSelf.imageTableView reloadData];
-    });
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSDictionary *imageInfo = [_imageDataList objectAtIndex:indexPath.row];
+        [RequestObject requestDeleteImageWithImageId:[imageInfo objectForKey:JSONImageIDKey]];
+    }
 }
 
-#pragma mark -
-#pragma mark imagePickerView
+#pragma mark - ImagePickerView
 //show imagePicker
 - (IBAction)clickImagePickerViewButton:(UIBarButtonItem *)sender
 {
@@ -195,44 +208,28 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark -
-#pragma mark imagePickerView Delegate
+#pragma mark - ImagePickerView delegate
 //select imagePicker
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    //이미지 저장
-//    __block UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    //이미지 이름 저장
-    __block UITextField *imageNameTextField;
-    
-    //이미지 이름 입력
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"사진이름"
-                                                                             message:@"사진이름을 입력해 주세요."
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        imageNameTextField = textField;
-        imageNameTextField.textAlignment = NSTextAlignmentCenter;
-        imageNameTextField.placeholder = @"이미지 이름을 입력해 주세요.";
+    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self dismissViewControllerAnimated:YES completion:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showImageNameSettingAlert:selectedImage];
+        });
     }];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         
-                                                         //image 이름과 image 전송
-//                                                         NSString *imageName = imageNameTextField.text;
-                                                         
-                                                         
-                                                         //cell update
-                                                         [self dismissViewControllerAnimated:YES completion:^{
-                                                             nil;
-                                                         }];
-                                                     }];
-    [alertController addAction:okAction];
-    [picker presentViewController:alertController animated:YES completion:nil];
 }
 
+//화면전환이 일어나기전에 호출되는 메서드 sender에는 segue가 시작되는 객체가 들어오고 segue는 segue와 관련된 VC(2개)를 가지고있다.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UITableViewCell *cell = sender;
+    NSIndexPath *cellIndex = [_imageTableView indexPathForCell:cell];
+    NSDictionary *imageInfo = [_imageDataList objectAtIndex:cellIndex.row];
+    
+    ImageViewController *imageViewController = segue.destinationViewController;
+    imageViewController.imageInfo = imageInfo;
+}
 
 //remove Notification Observer
 - (void)dealloc
