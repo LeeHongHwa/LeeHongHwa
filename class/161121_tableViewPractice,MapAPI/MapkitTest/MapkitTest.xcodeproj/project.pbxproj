@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6339E1371DE6D02D00F187DF /* Annotaion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6339E1361DE6D02D00F187DF /* Annotaion.m */; };
 		63E6063A1DE2EB1200B06DF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E606391DE2EB1200B06DF7 /* main.m */; };
 		63E6063D1DE2EB1200B06DF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E6063C1DE2EB1200B06DF7 /* AppDelegate.m */; };
 		63E606401DE2EB1200B06DF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E6063F1DE2EB1200B06DF7 /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6339E1351DE6D02D00F187DF /* Annotaion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotaion.h; sourceTree = "<group>"; };
+		6339E1361DE6D02D00F187DF /* Annotaion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotaion.m; sourceTree = "<group>"; };
 		63E606351DE2EB1200B06DF7 /* MapkitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapkitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E606391DE2EB1200B06DF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63E6063B1DE2EB1200B06DF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 				63E6063C1DE2EB1200B06DF7 /* AppDelegate.m */,
 				63E6063E1DE2EB1200B06DF7 /* ViewController.h */,
 				63E6063F1DE2EB1200B06DF7 /* ViewController.m */,
+				6339E1351DE6D02D00F187DF /* Annotaion.h */,
+				6339E1361DE6D02D00F187DF /* Annotaion.m */,
 				63E606411DE2EB1300B06DF7 /* Main.storyboard */,
 				63E606441DE2EB1300B06DF7 /* Assets.xcassets */,
 				63E606461DE2EB1300B06DF7 /* LaunchScreen.storyboard */,
@@ -126,6 +131,7 @@
 				TargetAttributes = {
 					63E606341DE2EB1200B06DF7 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NN7QXHC8A3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -167,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E606401DE2EB1200B06DF7 /* ViewController.m in Sources */,
+				6339E1371DE6D02D00F187DF /* Annotaion.m in Sources */,
 				63E6063D1DE2EB1200B06DF7 /* AppDelegate.m in Sources */,
 				63E6063A1DE2EB1200B06DF7 /* main.m in Sources */,
 			);
@@ -286,9 +293,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NN7QXHC8A3;
 				INFOPLIST_FILE = MapkitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyhonghwa.MapkitTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.develop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -297,9 +305,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NN7QXHC8A3;
 				INFOPLIST_FILE = MapkitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyhonghwa.MapkitTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.develop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -323,6 +332,7 @@
 				63E6064E1DE2EB1300B06DF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
