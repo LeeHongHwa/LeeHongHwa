@@ -7,6 +7,8 @@
 //
 
 #import "RequestObject.h"
+#import <AFNetworking.h>
+#import "MainViewController.h"
 
 //Request Type
 typedef NS_ENUM(NSInteger, RequestType)
@@ -88,6 +90,7 @@ static NSString *const JSONSuccessValue = @"success";
 //Requset Image List
 + (void)requestImageList
 {
+/*
     //create dataTaskHandler
     id dataTaskHandler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
     {
@@ -127,6 +130,49 @@ static NSString *const JSONSuccessValue = @"success";
                                             completionHandler:dataTaskHandler];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [dataTask resume];
+*/
+    
+    //AFNetworking
+    id dataTaskHandler = ^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@"%@", response);
+        NSLog(@"%@", error);
+        
+
+        if (responseObject == nil) {
+            NSLog(@"데이터가 없습니다");
+        } else if([responseObject objectForKey:JSONContentKey])
+            
+            NSLog(@"success");
+        
+        [[UserInformation sharedUserInfo] setImageInfoList:[responseObject objectForKey:JSONContentKey]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:imageListUpdatedNotification
+                                                                object:nil];
+        });
+    };
+
+    //URL
+    NSString *value = [[UserInformation sharedUserInfo] userId];
+    NSURL *requestURL = [RequestObject requestURL:RequestTypeImageList
+                                            param:@{ParamNameUserIDKey:value}];
+    
+    //URLRequest
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL];
+    request.HTTPMethod = @"GET";
+    
+    //URLSession
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    //Task
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request
+                                                completionHandler:dataTaskHandler];
+    //Resume
+    [dataTask resume];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 //create HTTPBody
@@ -138,6 +184,7 @@ static NSString *const JSONSuccessValue = @"success";
  */
 + (void)requestUploadImageWithTitle:(NSString *)title image:(UIImage *)image imageId:(NSString *)imageId
 {
+/*
     //create URL
     NSURL *requsetURL = [RequestObject requestURL:RequestTypeUploadImage param:nil];
     
@@ -210,7 +257,6 @@ static NSString *const JSONSuccessValue = @"success";
                 [[NSNotificationCenter defaultCenter] postNotificationName:ImageUploadDidSuccessNotification
                                                                     object:nil
                                                                   userInfo:dict];
-                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             }
         }
     };
@@ -222,12 +268,90 @@ static NSString *const JSONSuccessValue = @"success";
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [uploadTask resume];
+*/
     
+    //AFNetworking
+    
+    //create URL
+    NSString *requsetURL = [[RequestObject requestURL:RequestTypeUploadImage param:nil] absoluteString];
+    
+    
+    //create bodyParms
+    NSMutableDictionary *bodyParms = [NSMutableDictionary dictionary];
+    [bodyParms setObject:[[UserInformation sharedUserInfo] userId]
+                  forKey:ParamNameUserIDKey];
+    [bodyParms setObject:title
+                  forKey:ParamNameImageTitlekey];
+    if (imageId != nil)
+    {
+        [bodyParms setObject:imageId forKey:@"id"];
+    }
+    
+    //create construct body block
+    id constructBodyBlock = ^(id<AFMultipartFormData>  _Nonnull formData)
+    {
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 0.1)
+                                    name:ParamNameImageDatakey
+                                fileName:@"image.jpeg"
+                                mimeType:@"image/jpeg"];
+    };
+    
+    //create Request
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
+                                                                                              URLString:requsetURL
+                                                                                             parameters:bodyParms constructingBodyWithBlock:constructBodyBlock error:nil];
+    
+    //create URLSession
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    //progress block
+    id progressBlock = ^(NSProgress * _Nonnull uploadProgress)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+//            [progressView setProgress:uploadProgress.fractionCompleted];
+            NSLog(@"uploading... %lf %% completed", uploadProgress.fractionCompleted);
+        });
+        
+    };
+    
+    //completion block
+    id completionBlock = ^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
+    {
+        NSLog(@"response: %@", response);
+        if (error != nil)
+        {
+            NSLog(@"Error occured : %@", error);
+        }
+        if (responseObject == nil)
+        {
+            NSLog(@"Data dosen't exist");
+        } else
+        {
+            if ([[responseObject objectForKey:JSONResultKey] isEqualToString:JSONSuccessValue])
+            {
+                NSLog(@"success");
+                [RequestObject requestImageList];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ImageUploadDidSuccessNotification
+                                                                    object:nil
+                                                                  userInfo:responseObject];
+            }
+        }
+    };
+    
+    //create UploadTask
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request
+                                                                       progress:progressBlock
+                                                              completionHandler:completionBlock];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    [uploadTask resume];
 }
 
 + (void)requestDeleteImageWithImageId:(NSString *)imageId
 {
-    
+/*
+ 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:[[UserInformation sharedUserInfo] userId] forKey:ParamNameUserIDKey];
     [params setObject:imageId forKey:ParamNameImageIDkey];
@@ -272,61 +396,46 @@ static NSString *const JSONSuccessValue = @"success";
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                                      completionHandler:taskSessionHandler];
     [dataTask resume];
+*/
+    
+    //AFNetworking
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:[[UserInformation sharedUserInfo] userId] forKey:ParamNameUserIDKey];
+    [params setObject:imageId forKey:ParamNameImageIDkey];
+    
+    //create RequestURL
+    NSURL *requsetURL = [RequestObject requestURL:RequestTypeDeleteImage param:params];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requsetURL];
+    request.HTTPMethod = @"DELETE";
+    
+    //setting TaskSessionHandler
+    id taskSessionHandler = ^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
+    {
+        NSLog(@"%@",response);
+        if (error != nil)
+        {
+            NSLog(@"Error occured : %@",error);
+        }
+        if (responseObject == nil)
+        {
+            NSLog(@"Data dosen't exist");
+        }
+        if ([[responseObject objectForKey:JSONResultKey] isEqualToString:JSONSuccessValue])
+        {
+            NSLog(@"success");
+            [RequestObject requestImageList];
+        }
+    };
+    
+    //create session manager
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    //create TaskSession
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request
+                                                completionHandler:taskSessionHandler];
+    [dataTask resume];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

@@ -10,11 +10,12 @@
 #define PrefixHeader_pch
 #import "UserInformation.h"
 #import "RequestObject.h"
+#import <UIImageView+WebCache.h>
 
 //static NSString *const userId = @"user_Id";
 
 //UserInfo Key
-static NSString *const JSONTumbnailURLKey = @"tumbnail_Image";
+static NSString *const JSONTumbnailURLKey = @"thumbnail_url";
 static NSString *const JSONImageURLKey = @"image_url";
 static NSString *const JSONImageIDKey = @"id";
 

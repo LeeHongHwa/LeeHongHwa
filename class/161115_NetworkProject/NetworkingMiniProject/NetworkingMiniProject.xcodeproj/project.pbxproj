@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB1DB4E4BE6A6FF96F22024 /* libPods-NetworkingMiniProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF11D5373F1DF8F1CCAF04DA /* libPods-NetworkingMiniProject.a */; };
 		63C675591DDAA601005FEA9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C675581DDAA601005FEA9B /* main.m */; };
 		63C6755C1DDAA601005FEA9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C6755B1DDAA601005FEA9B /* AppDelegate.m */; };
 		63C6755F1DDAA601005FEA9B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C6755E1DDAA601005FEA9B /* MainViewController.m */; };
@@ -39,6 +40,9 @@
 		63C675761DDAE5A8005FEA9B /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		63ED05D51DE5B05C0005D1F2 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		63ED05D61DE5B05C0005D1F2 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		7833CA4F2362A94AE7B8B59B /* Pods-NetworkingMiniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingMiniProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkingMiniProject/Pods-NetworkingMiniProject.release.xcconfig"; sourceTree = "<group>"; };
+		C258CEBE7824BE0100AB4D79 /* Pods-NetworkingMiniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingMiniProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkingMiniProject/Pods-NetworkingMiniProject.debug.xcconfig"; sourceTree = "<group>"; };
+		CF11D5373F1DF8F1CCAF04DA /* libPods-NetworkingMiniProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetworkingMiniProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,17 +50,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB1DB4E4BE6A6FF96F22024 /* libPods-NetworkingMiniProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45F745405B377264FBB8B4AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF11D5373F1DF8F1CCAF04DA /* libPods-NetworkingMiniProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63C6754B1DDAA601005FEA9B = {
 			isa = PBXGroup;
 			children = (
 				63C675561DDAA601005FEA9B /* NetworkingMiniProject */,
 				63C675551DDAA601005FEA9B /* Products */,
+				9C187F14931B99F5FD2ACE14 /* Pods */,
+				45F745405B377264FBB8B4AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +116,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9C187F14931B99F5FD2ACE14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C258CEBE7824BE0100AB4D79 /* Pods-NetworkingMiniProject.debug.xcconfig */,
+				7833CA4F2362A94AE7B8B59B /* Pods-NetworkingMiniProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -108,9 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63C6756B1DDAA601005FEA9B /* Build configuration list for PBXNativeTarget "NetworkingMiniProject" */;
 			buildPhases = (
+				CF557B7A5D01A9548CC9445C /* [CP] Check Pods Manifest.lock */,
 				63C675501DDAA601005FEA9B /* Sources */,
 				63C675511DDAA601005FEA9B /* Frameworks */,
 				63C675521DDAA601005FEA9B /* Resources */,
+				D19BFA90931F1DFA9FE594E5 /* [CP] Embed Pods Frameworks */,
+				C4E7B95E22DED86DF48488BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,7 @@
 				TargetAttributes = {
 					63C675531DDAA601005FEA9B = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NN7QXHC8A3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -166,6 +194,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4E7B95E22DED86DF48488BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkingMiniProject/Pods-NetworkingMiniProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF557B7A5D01A9548CC9445C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D19BFA90931F1DFA9FE594E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkingMiniProject/Pods-NetworkingMiniProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63C675501DDAA601005FEA9B /* Sources */ = {
@@ -222,6 +298,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -269,6 +346,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -294,26 +372,30 @@
 		};
 		63C6756C1DDAA601005FEA9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C258CEBE7824BE0100AB4D79 /* Pods-NetworkingMiniProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NN7QXHC8A3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = NetworkingMiniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyhonghwa.NetworkingMiniProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.develop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		63C6756D1DDAA601005FEA9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7833CA4F2362A94AE7B8B59B /* Pods-NetworkingMiniProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NN7QXHC8A3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = NetworkingMiniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyhonghwa.NetworkingMiniProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.develop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

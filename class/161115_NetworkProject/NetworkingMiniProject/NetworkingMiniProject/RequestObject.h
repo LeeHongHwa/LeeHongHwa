@@ -14,6 +14,7 @@
 + (void)requestImageList;
 
 //이미지 업로드
+//강사님은 originImage 라고 하는구나
 + (void)requestUploadImageWithTitle:(NSString *)title image:(UIImage *)image imageId:(NSString *)imageId;
 
 //이미지 삭제

@@ -28,19 +28,30 @@
 
 @implementation MainViewController
 
+#pragma mark - ViewController Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //이미지 데이터 리스트 노티피케이션
+    //Add Observer(Notification)
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveImageUpdated)
                                                  name:imageListUpdatedNotification
                                                object:nil];
     
+    //create RefreshControl
     self.refreshControl = [[UIRefreshControl alloc] init];
     _refreshControl.tintColor = [UIColor blueColor];
-    [_refreshControl addTarget:[RequestObject class] action:@selector(requestImageList) forControlEvents:UIControlEventValueChanged];
-    [_imageTableView addSubview:_refreshControl];
+    
+    [_refreshControl addTarget:[RequestObject class]
+                        action:@selector(requestImageList)
+              forControlEvents:UIControlEventValueChanged];
+    
+//    [_imageTableView addSubview:_refreshControl];
+    
+    UITableViewController *tableViewController = [[UITableViewController alloc] init];
+    tableViewController.tableView = _imageTableView;
+    
+    tableViewController.refreshControl = _refreshControl;
 
 }
 
@@ -51,6 +62,18 @@
     {
         [self showLoginAlert];
     }
+}
+
+//remove Notification Observer
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:[RequestObject class]];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Reset
@@ -111,13 +134,14 @@
 }
 
 //image Name Alert
+//showImageTitleAlert
 - (void)showImageNameSettingAlert:(UIImage *)image
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"이미지 이름"
                                                                    message:@"이미지 이름을 입력해주세요"
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
-    id actionHandler = ^(UIAlertAction * _Nonnull action) {
+    id okHandler = ^(UIAlertAction * _Nonnull action) {
         if (alert.textFields.firstObject.text.length == 0 ||
             [alert.textFields.firstObject.text isEqualToString: @" "])
         {
@@ -128,7 +152,7 @@
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인"
                                                        style:UIAlertActionStyleDefault
-                                                     handler:actionHandler];
+                                                     handler:okHandler];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField)
      {
@@ -140,7 +164,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - TableView delegate
+#pragma mark - Table view data source
 //tableView Row
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -157,7 +181,9 @@
     NSDictionary *imageDataDic = [_imageDataList objectAtIndex:indexPath.row];
     cell.cellTitle.text = [imageDataDic objectForKey:@"title"];
     
-    id dataTaskHandler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    /*
+    id dataTaskHandler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
         UIImage *tumbnailImage = [UIImage imageWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.cellImageView.image = tumbnailImage;
@@ -167,15 +193,17 @@
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:[imageDataDic objectForKey:@"thumbnail_url"]] completionHandler:dataTaskHandler];
     
     [dataTask resume];
+     */
+    
+    //SDWebImage
+    NSLog(@"%@",imageDataDic[JSONTumbnailURLKey]);
+    [cell.cellImageView sd_setImageWithURL:[NSURL URLWithString:imageDataDic[JSONTumbnailURLKey]]
+                          placeholderImage:[UIImage imageNamed:@"dummyImage"]
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                     nil;
+                                 }];
     
     return cell;
-}
-
-//tableView Select
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = NO;
 }
 
 //tableView Edit
@@ -183,6 +211,7 @@
 {
     return YES;
 }
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -192,7 +221,15 @@
     }
 }
 
-#pragma mark - ImagePickerView
+#pragma mark - Table view controller delegate
+//tableView Select
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selected = NO;
+}
+
+#pragma mark - Show image picker view
 //show imagePicker
 - (IBAction)clickImagePickerViewButton:(UIBarButtonItem *)sender
 {
@@ -208,11 +245,12 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark - ImagePickerView delegate
+#pragma mark - Image picker controller delegate
 //select imagePicker
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
     [self dismissViewControllerAnimated:YES completion:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self showImageNameSettingAlert:selectedImage];
@@ -220,6 +258,7 @@
     }];
 }
 
+#pragma mark - Navigation
 //화면전환이 일어나기전에 호출되는 메서드 sender에는 segue가 시작되는 객체가 들어오고 segue는 segue와 관련된 VC(2개)를 가지고있다.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -231,16 +270,6 @@
     imageViewController.imageInfo = imageInfo;
 }
 
-//remove Notification Observer
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end
