@@ -50,6 +50,10 @@
   - [Network Project GET]
   - [Network Project GET, POST, DELETE]
 
+#### 4. 연락처
+  - e-mail: lyhonghwa@gmail.com
+  - phone: 010-9142-2646
+
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
   [신사역 맛집 Forkit]: <https://github.com/teamyummy/Forkit-iOS>
